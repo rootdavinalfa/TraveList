@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboard_container"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/dashboard_header"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:layout_centerInParent="true"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/design_default_color_background"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_below="@+id/dashboard_header"
+        android:layout_above="@id/dashboard_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dashboard_list"
+            tools:listitem="@layout/rv_travelist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/dashboard_nav"
+        android:background="@color/colorPrimaryDark"
+        app:itemIconTint="@color/check_bottom"
+        app:itemTextColor="@color/check_bottom"
+        app:menu="@menu/bottom_menu"
+        app:itemRippleColor="@color/colorAccent"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+</RelativeLayout>

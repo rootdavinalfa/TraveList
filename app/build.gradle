@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+
+
+android {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    compileSdkVersion 28
+    buildToolsVersion "29.0.0"
+    defaultConfig {
+        applicationId "ml.dvnlabs.travelist"
+        minSdkVersion 22
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            zipAlignEnabled true
+            debuggable false
+            jniDebuggable false
+            shrinkResources true
+
+            // Includes the default ProGuard rules files that are packaged with
+            // the Android Gradle plugin. To learn more, go to the section about
+            // R8 configuration files.
+            proguardFiles getDefaultProguardFile(
+                    'proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+            minifyEnabled = true
+            multiDexEnabled = true
+        }
+        debug {
+            shrinkResources true
+
+            // Includes the default ProGuard rules files that are packaged with
+            // the Android Gradle plugin. To learn more, go to the section about
+            // R8 configuration files.
+            proguardFiles getDefaultProguardFile(
+                    'proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+            minifyEnabled = true
+            multiDexEnabled = true
+        }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+    implementation 'androidx.core:core-ktx:1.2.0-alpha03'
+    testImplementation 'junit:junit:4.13-beta-3'
+    androidTestImplementation 'androidx.test:runner:1.3.0-alpha02'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0-alpha02'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'jp.wasabeef:glide-transformations:4.0.1'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview-selection:1.1.0-alpha06'
+    implementation 'com.google.android.material:material:1.1.0-alpha09'
+    implementation 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
+}
