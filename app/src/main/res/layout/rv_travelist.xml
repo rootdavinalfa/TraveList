@@ -62,8 +62,6 @@
             </LinearLayout>
             <TextView
                 android:id="@+id/rv_desc"
-                android:clickable="true"
-                android:focusable="true"
                 android:maxLines="3"
                 android:ellipsize="end"
                 android:layout_width="match_parent"

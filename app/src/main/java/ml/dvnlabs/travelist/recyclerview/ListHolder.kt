@@ -1,6 +1,7 @@
 package ml.dvnlabs.travelist.recyclerview
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BlurMaskFilter
 import android.graphics.drawable.Drawable
@@ -22,6 +23,7 @@ import com.bumptech.glide.request.transition.Transition
 import jp.wasabeef.glide.transformations.BlurTransformation
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import ml.dvnlabs.travelist.R
+import ml.dvnlabs.travelist.activity.Details
 import ml.dvnlabs.travelist.model.TravelModelList
 
 class ListHolder(context: Context?,view:View) : RecyclerView.ViewHolder(view) ,View.OnClickListener{
@@ -76,6 +78,14 @@ class ListHolder(context: Context?,view:View) : RecyclerView.ViewHolder(view) ,V
     }
 
     override fun onClick(v: View?) {
-        Toast.makeText(context,models!!.title,Toast.LENGTH_SHORT).show()
+        if (models != null){
+            val intent = Intent(context,Details::class.java)
+            intent.putExtra("title",models!!.title)
+            intent.putExtra("description",models!!.description)
+            intent.putExtra("imgurl",models!!.ImgUrl)
+            intent.putExtra("location",models!!.Loc)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(intent)
+        }
     }
 }
